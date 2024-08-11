@@ -133,7 +133,7 @@ export default function Page() {
                 <h1 className={`${poppins.className} text-5xl mb-20 text-center`}>Made with Teachable Machine</h1>
                 <Carousel items={projectWithTeachable} CardComponent={Card}/>
                 <p className="text-lg text-center m-20 w-[25rem] lg:w-[50rem]">
-                  Check out more experiments made with Teachable Machine <a href="https://experiments.withgoogle.com/experiments?tag=Teachable+Machine" className="underline">here</a>. If you've made something you want
+                  Check out more experiments made with Teachable Machine <a href="https://experiments.withgoogle.com/experiments?tag=Teachable+Machine" className="underline">here</a>. If you\'ve made something you want
                   to share with us, <a className="underline" href="https://experiments.withgoogle.com/submit">submit it here</a> or just email at <a className="underline" href="mailto:teachablemachine—support@google.com">teachablemachine-support@google.com</a>
                 </p>
           </section>
