@@ -14,10 +14,8 @@ const InputCard = ({heading, typeOfModel, isEmbedded = false,id,onCardDeleteClic
     const [showDisable, setShowDisable] = useState(false);
     const items = CARD_MENU_ITEMS;
     function onActionClicked(action: string){
-        console.log("onactionclicked");
         switch(action){
             case 'delete':
-                console.log(id);
                 onCardDeleteClicked && onCardDeleteClicked(id);
                 break;
             case 'diasble':

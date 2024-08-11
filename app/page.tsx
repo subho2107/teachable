@@ -20,6 +20,7 @@ import LearningCard from "./ui/home-page/LearningCard";
 import TwitterCard from "./ui/home-page/twitter-card";
 import TwitterIcon from '@mui/icons-material/Twitter';
 import Footer from "./ui/footer";
+import Link from "next/link";
 
 export default function Page() {
   const [showNavbar, setShowNavbar] = useState<boolean>(false);
@@ -32,7 +33,7 @@ export default function Page() {
   const forLearning = FOR_LEARNING;
   const tweets = TWEETS;
   useEffect(() => {
-    console.log(window.innerWidth, window.innerHeight);
+
     const observer = new IntersectionObserver(
       ([entry]) => {
           setShowNavbar(!entry.isIntersecting);
@@ -78,8 +79,8 @@ export default function Page() {
                 <p className="md:text-lg max-w-[27rem] mb-8 text-sm">
                   A fast, easy way to create machine learning models for your sites, apps, and more – no expertise or coding required.
                 </p>
-                <button className={`${poppins.className} bg-blue-500 hover:bg-blue-600 text-white p-10 py-4 rounded-lg text-xl mb-10`}>Get started</button>
-                <WorksWithSVG/>
+                <Link href='/train' className={`${poppins.className} bg-blue-500 hover:bg-blue-600 text-white p-10 py-4 rounded-lg text-xl`}>Get started</Link>
+                <div className="mt-10"><WorksWithSVG/></div>
               </div>
               <video width={480} height={454} autoPlay={true} loop playsInline preload="auto" muted>
                 <source src="/prediction.mp4" type="video/mp4"/>

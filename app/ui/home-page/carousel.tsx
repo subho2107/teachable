@@ -8,7 +8,6 @@ const Carousel = ({items, CardComponent}: {items: GenericCardType[], CardCompone
     let chunkedItems: GenericCardType[][] = [];
     useEffect(() => {
     function handleResize() {
-        console.log(window.innerWidth);
         if(window.innerWidth < 1024){
             setChunksLength(1);
         } else {
@@ -16,13 +15,10 @@ const Carousel = ({items, CardComponent}: {items: GenericCardType[], CardCompone
         }
     }
 
-    // Run the function once to set the initial state
     handleResize();
 
-    // Add event listener for future window resize events
     window.addEventListener('resize', handleResize);
 
-    // Cleanup function to remove the event listener when the component unmounts
     return () => window.removeEventListener('resize', handleResize);
 }, []);
     items.reduce((acc: any[], curr, index) => {
