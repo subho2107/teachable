@@ -5,9 +5,6 @@ import {
     useEdgesState,
     addEdge,
     ReactFlowProvider,
-    applyNodeChanges,
-    NodeChange,
-    NodePositionChange
   } from '@xyflow/react';
 import { useCallback, useEffect, useState } from 'react';
 import '@xyflow/react/dist/style.css';
@@ -42,7 +39,7 @@ const TrainingPlayground = ({typeOfModel, isEmbedded = false}:{typeOfModel: stri
     useEffect(() => {
         setNodes([...currentNodes]);
         setEdges([...currentEdges]);
-    }, [currentNodes, currentEdges]);
+    }, [currentNodes, currentEdges, setNodes, setEdges]);
 
     function onCardDeleteClicked(cardId: number){
         setCurrentNodes([...currentNodes.splice(0, cardId-1), ...currentNodes.splice(cardId+1)]);

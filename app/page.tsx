@@ -33,7 +33,6 @@ export default function Page() {
   const forLearning = FOR_LEARNING;
   const tweets = TWEETS;
   useEffect(() => {
-
     const observer = new IntersectionObserver(
       ([entry]) => {
           setShowNavbar(!entry.isIntersecting);
@@ -44,8 +43,9 @@ export default function Page() {
           threshold: 1.0
       }
     );
-    if(ref.current){
-        observer.observe(ref.current);
+    const currentRef = ref.current;
+    if(currentRef){
+        observer.observe(currentRef);
     }
     function handleResize() {
       setDimensions({
@@ -56,8 +56,8 @@ export default function Page() {
 
     window.addEventListener('resize', handleResize);
     return () => {
-        if(ref.current){
-            observer.unobserve(ref.current);
+        if(currentRef){
+            observer.unobserve(currentRef);
         }
         window.removeEventListener('resize', handleResize);
     }

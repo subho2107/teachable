@@ -61,7 +61,7 @@ const Page = () => {
                     <div className="border-2 border-dashed w-80 h-40 rounded-lg border-gray-300 text-gray-400 p-4 pb-8 pt-4 gap-4 flex flex-col">
                         <h3 className={`${poppinsThin.className}`}>More coming soon</h3>
                         <span className={`text-lg ${openSansThin.className}`}>
-                            More models will appear here as they're developed
+                            More models will appear here as they are developed
                         </span>
                     </div>
                 </section>
