@@ -24,7 +24,6 @@ import Link from "next/link";
 
 export default function Page() {
   const [showNavbar, setShowNavbar] = useState<boolean>(false);
-  const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
   const ref = useRef<HTMLDivElement | null>(null);
   const howToUseSectionCards = HOW_TO_USE;
   const whatToUseToTeach = WHAT_TO_USE_TO_TEACH;
@@ -47,19 +46,11 @@ export default function Page() {
     if(currentRef){
         observer.observe(currentRef);
     }
-    function handleResize() {
-      setDimensions({
-        width: window.innerWidth,
-        height: window.innerHeight,
-      });
-    }
-
-    window.addEventListener('resize', handleResize);
+  
     return () => {
         if(currentRef){
             observer.unobserve(currentRef);
         }
-        window.removeEventListener('resize', handleResize);
     }
   }, []);
 
@@ -70,7 +61,7 @@ export default function Page() {
       </div>
       <div className="flex flex-col min-h-screen w-full">
         <section className="main-content mt-16 lg:px-64 px-10 flex flex-col gap-20 h-fit">
-          <section ref={ref} className="flex flex-col-reverse lg:flex-row justify-between items-center pt-4">
+          <section ref={ref} className="flex flex-col-reverse xl:flex-row justify-between items-center pt-4">
               <div className="w-fit">
                 <h1 className={`${poppins.className} text-blue-600 md:text-6xl text-5xl`}>Teachable Machine</h1>
                 <p className={`${poppins.className} md:text-2xl my-8 max-w-[27rem] text-xl`}>
@@ -86,7 +77,7 @@ export default function Page() {
                 <source src="/prediction.mp4" type="video/mp4"/>
               </video>
           </section>
-          <section className="items-center justify-center flex flex-col mt-20">
+          <section className="items-center justify-center flex flex-col mt-20 ">
               <h1 className={`${poppins.className} text-5xl mb-20 text-center`}>What is Teachable Machine?</h1>
               <VideoComponent src="https://www.youtube.com/embed/T2qQGqZxkD0?si=x3Vh90meLyC4K4hB&autoplay=1"/>
               <p className="mt-10 text-wrap text-lg max-w-[38rem] text-center">
@@ -95,7 +86,7 @@ export default function Page() {
           </section>
           <section className="items-center justify-center flex flex-col">
               <h1 className={`${poppins.className} text-5xl my-20 text-center`}>How do I use it?</h1>
-              <div className="grid grid-rows-3 lg:grid-rows-none lg:grid-cols-3 gap-14">
+              <div className="grid grid-rows-3 xl:grid-rows-none xl:grid-cols-3 gap-14">
                 {
                   howToUseSectionCards.map((card: ImageCardType, index) => <Card {...card} indexOfCard={index+1} showLink={true} showPostLinkIcon key={card.heading}/>)
                 }
@@ -106,7 +97,7 @@ export default function Page() {
               <p className="text-wrap text-lg text-center mb-20 max-w-[50rem]">
                 Teachable Machine is flexible – use files or capture examples live. It’s respectful of the way you work. You can even choose to use it entirely on-device, without any webcam or microphone data leaving your computer.
               </p>
-              <div className="grid grid-rows-3 lg:grid-rows-none lg:grid-cols-3 gap-14 justify-center">
+              <div className="grid grid-rows-3 xl:grid-rows-none xl:grid-cols-3 gap-14 justify-center">
                 {
                   whatToUseToTeach.map((card: ImageCardType, index) => <Card {...card} key={card.heading} customStyles="grid-rows-[16rem_4rem_7rem]"/>)
                 }
@@ -152,7 +143,7 @@ export default function Page() {
               <h1 className={`${poppins.className} text-5xl mb-20`}>For Learning</h1>
               <span className="text-lg">Want to learn using Teachable Machine?</span>
               <span className="text-lg">Here are some lessons & activities folks have made with it:</span>
-              <div className="flex flex-col lg:flex-row justify-between">
+              <div className="flex flex-col xl:flex-row justify-between">
                 {
                   forLearning.map((learning: LearningCardType) => {
                     return(

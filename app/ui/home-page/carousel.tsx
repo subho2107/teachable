@@ -31,13 +31,13 @@ const Carousel = ({items, CardComponent}: {items: GenericCardType[], CardCompone
         }
     }, []);
     return (
-        <section className="flex items-center gap-4 lg:gap-20">
+        <section className="flex items-center gap-4 xl:gap-20">
             <button className="text-2xl lg:text-4xl  text-blue-500 focus:border focus:border-solid focus:border-blue-500 w-fit h-16 rounded-full flex items-center justify-center" onClick={() => setCurrentPage(currentPage === 0 ? chunkedItems.length-1 : currentPage-1)}><span>{'<'}</span></button>
             <div className="w-[20rem] lg:w-[60rem] flex justify-center">
                 {
                     chunkedItems.map((currentItems: GenericCardType[], itemsIndex) => {
                         return(
-                            <div key={itemsIndex} className={`flex justify-between gap-2 lg:gap-8 ${itemsIndex === currentPage ? 'block': 'hidden'}`}>
+                            <div key={itemsIndex} className={`flex justify-between gap-2 xl:gap-8 ${itemsIndex === currentPage ? 'block': 'hidden'}`}>
                                 {
                                    currentItems.map((card: GenericCardType) => {
                                     return <CardComponent {...card} key={card.id}/>

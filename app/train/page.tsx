@@ -53,7 +53,7 @@ const Page = () => {
                         <button className="bg-white text-sm rounded-lg p-2 px-8 shadow-lg"><AddToDriveIcon/> Open an existing project from Drive.</button>
                         <button className="bg-white text-sm rounded-lg p-2 px-8 shadow-lg"><FolderOpenOutlinedIcon/> Open an existing project from file.</button>
                     </div>
-                    <div className="flex gap-10 m-10">
+                    <div className="grid grid-rows-2 grid-cols-2 xl:grid-rows-1 xl:grid-cols-[2fr_2fr_2fr] gap-10 m-10">
                         {
                             trainingModels.map((model) => <div key={model.id}  onClick={() => model.type === 'Image' && setShowImageModal(true)}><TrainCard {...model}/></div>)
                         }
